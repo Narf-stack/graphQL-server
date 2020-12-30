@@ -118,7 +118,7 @@ const RootMutationType = new GraphQLObjectType({
   description: 'Root Mutation',
   fields: () => ({
     addBook: {
-      type: BookType,
+      type: Booktype,
       description: 'Add a book',
       args: {
         name: { type: GraphQLNonNull(GraphQLString) },
@@ -131,7 +131,7 @@ const RootMutationType = new GraphQLObjectType({
       }
     },
     addAuthor: {
-      type: AuthorType,
+      type: Authortype,
       description: 'Add an author',
       args: {
         name: { type: GraphQLNonNull(GraphQLString) }
