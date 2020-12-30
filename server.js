@@ -53,7 +53,6 @@ const Booktype = new GraphQLObjectType({
       type: new GraphQLNonNull(GraphQLInt),
     }
   })
-
 })
 
 const RootQueryType = new GraphQLObjectType({
@@ -69,6 +68,10 @@ const RootQueryType = new GraphQLObjectType({
 
 })
 
+
+const schema = new GraphQLSchema({
+  query: RootQueryType
+})
 app.use('/graphql',
   graphqlHTTP({
     schema: schema,
