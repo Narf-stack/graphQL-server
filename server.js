@@ -48,6 +48,12 @@ const Authortype = new GraphQLObjectType({
     },
     name:{
       type: new GraphQLNonNull(GraphQLString),
+    },
+    books:{
+      type: new GraphQLList(Booktype),
+      resolve: (author) => {
+        return books.filter(book => author.id === book.authorId)
+      }
     }
   })
 })
