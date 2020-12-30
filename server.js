@@ -83,6 +83,14 @@ const RootQueryType = new GraphQLObjectType({
   name: 'Query',
   description: "Root Query",
   fields:()=>({
+    book:{
+      type: Booktype,
+      description: ' a book',
+      args:{
+        id: {type: GraphQLInt}
+      },
+      resolve:(parents,args)=> books.find(book => book.id === args.id)
+    },
     books:{
       type: new GraphQLList(Booktype),
       description: 'list of books',
@@ -92,6 +100,14 @@ const RootQueryType = new GraphQLObjectType({
       type: new GraphQLList(Authortype),
       description: 'list of authors',
       resolve:()=> authors
+    },
+    author:{
+      type: Authortype,
+      description: 'An authors',
+      args:{
+        id: {type: GraphQLInt}
+      },
+      resolve:(parents,args)=> authors.find(author => author.id === args.id)
     }
   })
 
